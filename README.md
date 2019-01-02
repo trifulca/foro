@@ -17,7 +17,15 @@ createdb spirit     # para crear la base de datos postgres
 pipenv run python manage.py migrate
 pipenv run python manage.py createcachetable
 pipenv run python manage.py collectstatic
+
 pipenv run python manage.py runserver
+```
+
+Y para tener un usuario inicial, se puede ejecutar este
+comando:
+
+```
+pipenv run python manage.py createsuperuser
 ```
 
 ## Deploy a producción
