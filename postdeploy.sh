@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "EJECUTANDO POST DEPLOY"
 
 python manage.py migrate --noinput
 python manage.py createcachetable
