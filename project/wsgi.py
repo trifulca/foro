@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import os
 
 LOCAL_SETTINGS_PATH = os.path.join(os.path.dirname(__file__), 'settings', 'local_prod.py')
@@ -10,5 +9,6 @@ else:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings.heroku_prod")
 
 from django.core.wsgi import get_wsgi_application
+from dj_static import Cling, MediaCling
 
-application = get_wsgi_application()
+application = Cling(MediaCling(get_wsgi_application()))

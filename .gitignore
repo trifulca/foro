@@ -4,6 +4,7 @@ static
 db.sqlite3
 *local_prod.py
 
+media_archivos_locales/
 project/staticfiles/
 
 # Byte-compiled / optimized / DLL files

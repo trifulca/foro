@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7b4e7589907f2e95014f04f5658296197fdd8b9093cff25cb2115d0abb36191d"
+            "sha256": "c18a5c9314371614b3f4a1f6fbfc3e61fb6f4db7a0f58424f459c77ad2e8f5ce"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,6 +22,12 @@
                 "sha256:851785365761ebe4994a921b433062309eb882fedd318e1b0fcecc607ed02da9"
             ],
             "version": "==0.5.0"
+        },
+        "dj-static": {
+            "hashes": [
+                "sha256:032ec1c532617922e6e3e956d504a6fb1acce4fc1c7c94612d0fda21828ce8ef"
+            ],
+            "version": "==0.0.6"
         },
         "django": {
             "hashes": [
@@ -185,6 +191,12 @@
                 "sha256:c5951d9ef1d5404ed04bae5a16b60a0779087378928f997a294d1229c6ca4d3e"
             ],
             "version": "==1.2.12"
+        },
+        "static3": {
+            "hashes": [
+                "sha256:674641c64bc75507af2eb20bef7e7e3593dca993dec6674be108fa15b42f47c8"
+            ],
+            "version": "==0.7.0"
         },
         "uni-slugify": {
             "hashes": [

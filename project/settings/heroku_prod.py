@@ -49,8 +49,6 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 STATIC_ROOT = os.path.join(BASE_DIR_ABS, 'staticfiles')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR_ABS, 'media')
-
 # Default language
 LANGUAGE_CODE = os.environ.get('DEFAULT_LANGUAGE_CODE', 'en')
 
