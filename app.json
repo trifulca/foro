@@ -47,7 +47,9 @@
     }
   },
   "scripts": {
-    "postdeploy": "chmod +x postdeploy.sh && ./postdeploy.sh"
+    "dokku": {
+    	"postdeploy": "chmod +x postdeploy.sh && ./postdeploy.sh"
+    }
   },
   "addons": [
     "heroku-postgresql:hobby-dev"
