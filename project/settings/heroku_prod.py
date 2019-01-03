@@ -32,6 +32,8 @@ ALLOWED_HOSTS = [
     h.strip()
     for h in os.environ.get('ALLOWED_HOSTS', "*").split(',')]
 
+ALLOWED_HOSTS.append("68.183.163.138")
+
 # Email backend
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
