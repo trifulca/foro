@@ -33,6 +33,8 @@ ALLOWED_HOSTS = [
     for h in os.environ.get('ALLOWED_HOSTS', "*").split(',')]
 
 ALLOWED_HOSTS.append("68.183.163.138")
+ALLOWED_HOSTS.append("0.0.0.0:5000")
+ALLOWED_HOSTS.append("0.0.0.0")
 
 # Email backend
 EMAIL_USE_TLS = True
