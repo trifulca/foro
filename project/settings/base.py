@@ -155,6 +155,7 @@ MEDIA_URL = '/media/'
 
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = os.environ.get('MEDIA_ROOT', 'media_archivos_locales')
+SITE_URL = os.environ.get('SITE_URL')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
