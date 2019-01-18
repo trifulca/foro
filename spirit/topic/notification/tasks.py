@@ -2,14 +2,18 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.mail import send_mail
 
+import dramatiq
+
 from spirit.topic.models import Topic
 
 
+@dramatiq.actor
 def notify_comment(user_id, topic_id):
     subject = "Respondieron a un tema en el que estás suscripto"
     return notify_by_mail(user_id, topic_id, subject)
 
 
+@dramatiq.actor
 def notify_mention(user_id, topic_id):
     subject = "Te mencionaron un tema"
     return notify_by_mail(user_id, topic_id, subject)

@@ -20,7 +20,7 @@ olefile = "==0.45.1"
 django-infinite-scroll-pagination = "==0.2.0"
 django-dramatiq = "*"
 redis = "==2.10.6"
-dramatiq = {extras = ["redis"],version = "*"}
+dramatiq = {extras = ["redis", "watch"],version = "*"}
 
 [dev-packages]
 flake8 = "*"

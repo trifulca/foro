@@ -10,8 +10,6 @@ from django.db import IntegrityError, transaction
 from .managers import TopicNotificationQuerySet
 from ...core.conf import settings
 
-from .tasks import notify_comment, notify_mention
-
 UNDEFINED, MENTION, COMMENT = range(3)
 
 ACTION_CHOICES = (
@@ -87,25 +85,28 @@ class TopicNotification(models.Model):
 
     @classmethod
     def notify_new_comment(cls, comment):
+        from .tasks import notify_comment
+
         notifications = (cls.objects
                     .filter(topic=comment.topic, is_active=True, is_read=True)
-                    .exclude(user=comment.user))
+                    .exclude(user=comment.user))  # noqa
 
         for notification in notifications:
-            notify_comment(notification.user_id, notification.topic_id)
+            notify_comment.send(notification.user_id, notification.topic_id)
 
         (notifications
-         .update(comment=comment, is_read=False, action=COMMENT, date=timezone.now()))
+         .update(comment=comment, is_read=False, action=COMMENT, date=timezone.now()))  # noqa
 
     @classmethod
     def notify_new_mentions(cls, comment, mentions):
         if not mentions:
             return
 
+        from .tasks import notify_mention
         # TODO: refactor
         for username, user in mentions.items():
             try:
-                notify_mention(user.id, comment.topic_id)
+                notify_mention.send(user.id, comment.topic_id)
 
                 with transaction.atomic():
                     cls.objects.create(
@@ -154,7 +155,7 @@ class TopicNotification(models.Model):
             topic.comment_set
                 .filter(date__gt=comment.date)
                 .order_by('date')
-                .first())
+                .first())  # noqa
         if next_comment is None:
             (cls.objects
              .filter(comment=comment, topic=topic)
