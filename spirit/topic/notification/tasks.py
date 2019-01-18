@@ -30,5 +30,5 @@ def notify_by_mail(user_id, topic_id, subject):
         msg,
         settings.DEFAULT_FROM_EMAIL,
         [user.email],
-        fail_silently=False,
+        fail_silently=True,
     )

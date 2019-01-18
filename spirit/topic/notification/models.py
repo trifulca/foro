@@ -105,7 +105,7 @@ class TopicNotification(models.Model):
         # TODO: refactor
         for username, user in mentions.items():
             try:
-                notify_mention(notification.user_id, notification.topic_id)
+                notify_mention(user.id, comment.topic_id)
 
                 with transaction.atomic():
                     cls.objects.create(
