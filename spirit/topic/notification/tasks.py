@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from django.core.mail import send_mail
 
+from spirit.topic.models import Topic
+
 
 def notify_comment(user_id, topic_id):
     subject = "Respondieron a un tema en el que estás suscripto"
@@ -11,6 +13,7 @@ def notify_comment(user_id, topic_id):
 def notify_mention(user_id, topic_id):
     subject = "Te mencionaron un tema"
     return notify_by_mail(user_id, topic_id, subject)
+
 
 def notify_by_mail(user_id, topic_id, subject):
     # TODO: Poner tries
