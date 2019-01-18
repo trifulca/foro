@@ -158,6 +158,9 @@ MEDIA_ROOT = os.environ.get('MEDIA_ROOT', 'media_archivos_locales')
 SITE_URL = os.environ.get('SITE_URL')
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'spirit', 'core', 'static')
+]
 
 # Send an email to the site admins
 # on error when DEBUG=False,
