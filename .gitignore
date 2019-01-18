@@ -1,6 +1,5 @@
 # Heroku
 venv
-static
 db.sqlite3
 *local_prod.py
 
