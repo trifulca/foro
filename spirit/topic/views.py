@@ -18,7 +18,7 @@ from ..comment.models import Comment
 from .models import Topic
 from .forms import TopicForm
 from . import utils
-
+from spirit.user.models import UserProfile
 
 @login_required
 @ratelimit(rate='1/10s')
@@ -106,7 +106,8 @@ def detail(request, pk, slug):
 
     context = {
         'topic': topic,
-        'comments': comments
+        'comments': comments,
+        'users': [profile.user.username for profile in UserProfile.objects.all()]
     }
 
     return render(request, 'spirit/topic/detail.html', context)

@@ -53,6 +53,11 @@
   </ul>
 {% endspaceless %}
 
+
+
+
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
 
@@ -129,5 +134,23 @@
       });
     })();
 
+    var users = [...document.querySelectorAll("p[data-user]")].map(e => e.textContent);
+
+    var tribute = new Tribute({
+      values: users.map(function(e) {
+        return {key: e, value: e}
+      })
+    })
+
+    tribute.attach(document.getElementById('id_comment'));
+
+
   });
 </script>
+
+<div style='display: none'>
+  {% for user in users %}
+  <p data-user={{user}}>{{user}}</p>
+  {% endfor %}
+  </pre>
+</div>
