@@ -18,10 +18,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tributejs/3.5.3/tribute.min.js"></script>
 
 
-  <style media="screen">
+  <style>
     body {
       padding-left: 1em;
       padding-right: 1em;
+    }
+
+    @media screen and (max-width: 768px) {
+      .comment-img {
+        float: none !important;
+      }
+
+      .comment-avatar {
+        margin-bottom: 18px;
+      }
+    }
+
+    .button.is-undo, input[type=submit].button.is-undo {
+      background-color: #c65555;
+      color: white;
+    }
+
+    .button:hover {
+      opacity: 0.8;
     }
   </style>
 
