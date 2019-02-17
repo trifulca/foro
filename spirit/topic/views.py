@@ -54,6 +54,7 @@ def publish(request, category_id=None):
     context = {
         'form': form,
         'cform': cform,
+        'users': get_usernames(),
     }
 
     return render(request, 'spirit/topic/publish.html', context)
@@ -107,10 +108,13 @@ def detail(request, pk, slug):
     context = {
         'topic': topic,
         'comments': comments,
-        'users': [profile.user.username for profile in UserProfile.objects.all()]
+        'users': get_usernames(),
     }
 
     return render(request, 'spirit/topic/detail.html', context)
+
+def get_usernames():
+    return [profile.user.username for profile in UserProfile.objects.all()]
 
 
 def index_active(request):
