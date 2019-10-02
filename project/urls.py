@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 import spirit.urls
+import feeds.urls
 
 # Override admin login for security purposes
 from django.contrib.auth.decorators import login_required
@@ -20,6 +21,7 @@ urlpatterns = [
     # This is the default django admin
     # it's not needed to use Spirit
     url(r'^admin/', admin.site.urls),
+    url(r'^feeds/', include(feeds.urls)),
 ]
 
 if settings.DEBUG:

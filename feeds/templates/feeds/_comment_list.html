@@ -1,0 +1,49 @@
+{% load spirit_tags i18n %}
+
+<div class="comments">
+
+  {% for c in comments %}
+
+  <div class="comment" id="c{{c.pk}}">
+
+    {% if not c.is_removed %}
+
+    <div class="comment-info">
+      {% spaceless %}
+        <div class="comment-username">
+          <a href="{{ c.user.st.get_absolute_url }}">{{ c.user.st.nickname }}</a>
+          <span class="comment-realname">{{ c.user.get_full_name }}</span>
+          - {{ c.date|shortnaturaltime }}
+          {% if c.modified_count > 0 %}
+            <a href="{% url "spirit:comment:history:detail" comment_id=c.pk %}">
+               📝 (editado {{ c.modified_count }} veces)</a>
+          {% endif %}
+        </div>
+      {% endspaceless %}
+    </div>
+
+    <div class="comment-text">
+      {% if not c.action %}
+        {{ c.comment_html | safe }}
+      {% else %}
+        <p>{% get_comment_action_text c.action %}.</p>
+      {% endif %}
+    </div>
+
+    {% else %}
+
+    <div class="comment-removed">
+      <a href="{{ c.user.st.get_absolute_url }}">{{ c.user.st.nickname }}</a>
+    </div>
+
+    <div class="comment-text">
+      {% trans "This comment was deleted" %}.
+    </div>
+
+    {% endif %}
+
+  </div>
+
+  {% endfor %}
+
+</div>

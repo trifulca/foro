@@ -1,0 +1,21 @@
+{% load spirit_tags i18n %}
+
+{% spaceless %}
+  <p>
+    <a href="{% url "spirit:index" %}" >{% trans "Main" %}</a>
+    &gt;
+    {% if topic.category.parent_id %}
+      <a href="{{ topic.category.parent.get_absolute_url }}">{{ topic.category.parent.title }}</a>
+      &gt;
+    {% endif %}
+    <a href="{{ topic.category.get_absolute_url }}">{{ topic.category.title }}</a>
+  </p>
+{% endspaceless %}
+
+<h1 class="headline">
+  {% if topic.is_pinned or topic.is_globally_pinned %}📌{% endif %}
+  {% if topic.is_closed %}🔒{% endif %}
+  {{ topic.title }}
+</h1>
+
+{% include "feeds/_comment_list.html" %}
