@@ -11,8 +11,8 @@
     <div class="comment-info">
       {% spaceless %}
         <div class="comment-username">
-          <a href="{{ c.user.st.get_absolute_url }}">{{ c.user.st.nickname }}</a>
-          <span class="comment-realname">{{ c.user.get_full_name }}</span>
+          <a href="{{ c.user.st.get_absolute_url }}">
+            {{ c.user.st.nickname }}{% if c.user.get_full_name %} ({{ c.user.get_full_name }}){% endif %}</a>
           - {{ c.date|shortnaturaltime }}
           {% if c.modified_count > 0 %}
             <a href="{% url "spirit:comment:history:detail" comment_id=c.pk %}">
