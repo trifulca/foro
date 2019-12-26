@@ -29,4 +29,4 @@ ejecutar:
 
 deploy:
 	@echo "Agregando remoto para dokku y realizando push"
-	git remote add dokku dokku@trifulca.space:foro 2>/dev/null; git push dokku master -f
+	git remote add dokku dokku@trifulca.com.ar:foro 2>/dev/null; git push dokku master -f

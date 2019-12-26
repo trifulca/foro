@@ -34,6 +34,6 @@ se tiene que agregar la dirección del git de dokku y realizar
 un push así:
 
 ```
-git remote add dokku dokku@trifulca.space:foro
+git remote add dokku dokku@trifulca.com.ar:foro
 git push dokku master -f
 ```
